@@ -1,0 +1,9 @@
+Retrieval-Augmented Generation (RAG) là kỹ thuật kết hợp giữa truy xuất thông tin (retrieval) và mô hình sinh văn bản (generation). Thay vì chỉ dựa vào kiến thức đã học trong lúc huấn luyện, mô hình RAG truy xuất các đoạn văn bản liên quan từ một kho dữ liệu bên ngoài, sau đó dùng chúng làm ngữ cảnh để sinh câu trả lời chính xác và cập nhật hơn.
+
+Một pipeline RAG cơ bản gồm 3 bước: ingestion (nạp và chia nhỏ tài liệu thành các chunk, sau đó tạo embedding), retrieval (tìm các chunk liên quan nhất với câu hỏi), và generation (dùng LLM sinh câu trả lời dựa trên các chunk tìm được).
+
+Advanced RAG bổ sung thêm nhiều kỹ thuật để cải thiện chất lượng truy xuất và câu trả lời. Hybrid search kết hợp dense retrieval (dựa trên embedding, tìm theo ngữ nghĩa) và sparse retrieval như BM25 (dựa trên từ khóa), sau đó hợp nhất kết quả bằng Reciprocal Rank Fusion (RRF). Re-ranking dùng một mô hình cross-encoder để chấm điểm lại mức độ liên quan giữa câu hỏi và từng đoạn văn bản, giúp xếp hạng chính xác hơn so với chỉ dùng điểm truy xuất ban đầu.
+
+Query rewriting là bước viết lại câu hỏi gốc của người dùng cho rõ ràng và cụ thể hơn trước khi truy xuất. Query expansion sinh ra nhiều cách diễn đạt khác nhau của cùng một câu hỏi để tăng khả năng tìm được tài liệu liên quan mà cách hỏi gốc có thể bỏ sót. Multi-hop reasoning phân tách một câu hỏi phức tạp thành nhiều câu hỏi con, mỗi câu hỏi con được truy xuất riêng, giúp trả lời được các câu hỏi cần tổng hợp thông tin từ nhiều nguồn khác nhau.
+
+ChromaDB là một vector database mã nguồn mở, thường được dùng để lưu trữ và truy vấn embedding trong các ứng dụng RAG chạy local mà không cần hạ tầng server phức tạp.

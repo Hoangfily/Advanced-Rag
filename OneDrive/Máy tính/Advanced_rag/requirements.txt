@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+chromadb
+pypdf
+rank-bm25
+sentence-transformers
+google-genai
+streamlit
+requests
+pytest

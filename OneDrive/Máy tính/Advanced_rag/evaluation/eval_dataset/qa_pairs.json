@@ -1,0 +1,18 @@
+[
+  {
+    "question": "RAG cơ bản gồm những bước nào?",
+    "relevant_chunk_ids": ["data/raw/sample.txt::0", "data/raw/sample.txt::1"]
+  },
+  {
+    "question": "Hybrid search kết hợp những kỹ thuật truy xuất nào?",
+    "relevant_chunk_ids": ["data/raw/sample.txt::1"]
+  },
+  {
+    "question": "Multi-hop reasoning dùng để làm gì?",
+    "relevant_chunk_ids": ["data/raw/sample.txt::2", "data/raw/sample.txt::3"]
+  },
+  {
+    "question": "ChromaDB dùng để làm gì?",
+    "relevant_chunk_ids": ["data/raw/sample.txt::3"]
+  }
+]
