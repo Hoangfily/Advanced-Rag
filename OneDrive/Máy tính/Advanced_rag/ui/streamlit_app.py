@@ -12,7 +12,8 @@ with st.sidebar:
     if st.button("Ingest"):
         paths = [p.strip() for p in paths_input.splitlines() if p.strip()]
         response = requests.post(f"{API_URL}/ingest", json={"paths": paths})
-        st.write(response.json())
+        result = response.json()
+        st.markdown(f"Đã ingest **{result['ingested_chunks']}** chunks.")
 
 question = st.text_input("Đặt câu hỏi")
 if st.button("Hỏi") and question:
@@ -23,9 +24,10 @@ if st.button("Hỏi") and question:
 
     if data.get("sub_queries"):
         st.subheader("Câu hỏi con (multi-hop)")
-        st.write(data["sub_queries"])
+        for sub_query in data["sub_queries"]:
+            st.markdown(f"- {sub_query}")
 
     st.subheader("Ngữ cảnh sử dụng")
     for chunk in data.get("contexts", []):
         with st.expander(f"{chunk['source']} (score={chunk['score']:.4f})"):
-            st.write(chunk["text"])
+            st.markdown(chunk["text"])

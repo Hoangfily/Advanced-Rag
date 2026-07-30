@@ -15,4 +15,4 @@ def _load_pdf(path: str) -> str:
 
 
 def load_documents(paths: list[str]) -> dict[str, str]:
-    return {path: load_document(path) for path in paths}
+    return {Path(path).as_posix(): load_document(path) for path in paths}

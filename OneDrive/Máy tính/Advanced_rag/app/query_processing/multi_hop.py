@@ -1,17 +1,11 @@
-import re
-
+from app.generation.llm_client import LLMClient
 from app.generation.prompt_templates import MULTI_HOP_DECOMPOSE_TEMPLATE
+from app.query_processing.output_parsers import QuestionListOutputParser
 
 
-def decompose_query(query: str, llm_client) -> list[str]:
-    prompt = MULTI_HOP_DECOMPOSE_TEMPLATE.format(question=query)
-    response = llm_client.complete(prompt)
-
-    sub_queries = []
-    for line in response.splitlines():
-        cleaned = re.sub(r"^\s*(\d+[.)]|[-*])\s*", "", line).strip()
-        if cleaned.endswith("?"):
-            sub_queries.append(cleaned)
+def decompose_query(query: str, llm_client: LLMClient) -> list[str]:
+    chain = MULTI_HOP_DECOMPOSE_TEMPLATE | llm_client | QuestionListOutputParser()
+    sub_queries = chain.invoke({"question": query})
 
     if not sub_queries:
         return [query]

@@ -20,7 +20,7 @@ class RagPipeline:
         self.settings = settings
         self.embedder = Embedder(settings.embedding_model, settings.gemini_api_key)
         self.llm_client = LLMClient(settings.llm_model, settings.gemini_api_key)
-        self.vector_store = VectorStore(settings.chroma_persist_dir, settings.chroma_collection_name)
+        self.vector_store = VectorStore(settings.chroma_persist_dir, settings.chroma_collection_name, self.embedder)
         self.reranker = Reranker(settings.reranker_model)
         self._sparse_retriever: SparseRetriever | None = None
         self._hybrid_retriever: HybridRetriever | None = None
@@ -30,8 +30,10 @@ class RagPipeline:
         existing_chunks = self.vector_store.get_all_chunks()
         if not existing_chunks:
             return
-        self._sparse_retriever = SparseRetriever(existing_chunks)
-        self._hybrid_retriever = HybridRetriever(self.vector_store, self._sparse_retriever)
+        self._sparse_retriever = SparseRetriever(existing_chunks, top_k=self.settings.top_k_sparse)
+        self._hybrid_retriever = HybridRetriever(
+            self.vector_store, self._sparse_retriever, top_k_dense=self.settings.top_k_dense
+        )
 
     def ingest(self, paths: list[str]) -> int:
         documents = load_documents(paths)
@@ -39,8 +41,7 @@ class RagPipeline:
         for source, text in documents.items():
             all_chunks.extend(chunk_text(text, source, self.settings.chunk_size, self.settings.chunk_overlap))
 
-        embeddings = self.embedder.embed_texts([c.text for c in all_chunks])
-        self.vector_store.add_chunks(all_chunks, embeddings)
+        self.vector_store.add_chunks(all_chunks)
 
         self._rebuild_retrievers_from_store()
         return len(all_chunks)
@@ -51,7 +52,7 @@ class RagPipeline:
         rewritten = rewrite_query(question, self.llm_client)
         sub_queries = decompose_query(rewritten, self.llm_client)
 
-        candidates: list[dict] = []
+        candidates: list[RetrievedChunk] = []
         for sub_query in sub_queries:
             query_variants = [sub_query]
             if self.settings.enable_query_expansion:
@@ -60,18 +61,15 @@ class RagPipeline:
                 )
 
             for variant in query_variants:
-                embedding = self.embedder.embed_query(variant)
-                candidates.extend(
-                    self._hybrid_retriever.retrieve(variant, embedding, self.settings.top_k_dense)
-                )
+                candidates.extend(self._hybrid_retriever.retrieve(variant, self.settings.top_k_dense))
 
         reranked = self.reranker.rerank(rewritten, candidates, top_k)
-        context = "\n\n".join(c["text"] for c in reranked)
+        context = "\n\n".join(c.text for c in reranked)
         prompt = RAG_ANSWER_TEMPLATE.format(context=context, question=question)
         answer = self.llm_client.complete(prompt)
 
         return QueryResponse(
             answer=answer,
             sub_queries=sub_queries,
-            contexts=[RetrievedChunk(**c) for c in reranked],
+            contexts=reranked,
         )

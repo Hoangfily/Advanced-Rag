@@ -2,6 +2,10 @@ fastapi
 uvicorn[standard]
 pydantic
 pydantic-settings
+langchain-core
+langchain
+langchain-classic
+langchain-community
 chromadb
 pypdf
 rank-bm25

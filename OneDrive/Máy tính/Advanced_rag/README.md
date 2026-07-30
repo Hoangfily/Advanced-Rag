@@ -25,14 +25,14 @@ app/
 ui/
   streamlit_app.py            # UI demo, gọi API FastAPI
 data/
-  raw/        # tài liệu nguồn (sample.txt có sẵn để test)
+  raw/        # tài liệu nguồn (FSoft_HR.pdf có sẵn để test)
   chroma_db/  # dữ liệu Chroma persist trên đĩa
 evaluation/
   metrics.py run_eval.py eval_dataset/qa_pairs.json   # Recall@k, MRR
 scripts/
   ingest_documents.py build_index.py       # ingest thủ công / ingest cả thư mục data/raw
   smoke_test_gemini.py                     # test nhanh kết nối embedding + generate
-  smoke_test_pipeline.py                   # chạy thử full pipeline (ingest + query) trên sample.txt
+  smoke_test_pipeline.py                   # chạy thử full pipeline (ingest + query) trên FSoft_HR.pdf
   list_gemini_models.py                    # liệt kê model mà API key hiện có quyền dùng
 tests/       # unit test (chunking, RRF, reranker)
 ```
@@ -77,7 +77,7 @@ Hỗ trợ `.txt` và `.pdf` (đọc qua `pypdf`).
 
 Ingest chỉ cần chạy **một lần** (dữ liệu persist trong `data/chroma_db/`) — server API/Streamlit khởi động sau đó sẽ tự động dựng lại BM25 sparse retriever từ dữ liệu đã lưu, không cần ingest lại mỗi lần chạy process mới.
 
-Tất cả file trong `data/raw/` dùng chung 1 Chroma collection (`documents`). Nếu chỉ muốn truy vấn trên corpus thật của bạn (không lẫn `sample.txt` demo), xoá thư mục `data/chroma_db/` rồi ingest lại riêng file của bạn, hoặc đổi `CHROMA_COLLECTION_NAME` trong `.env`.
+Tất cả file trong `data/raw/` dùng chung 1 Chroma collection (`documents`). Nếu muốn tách corpus (ví dụ nhiều bộ tài liệu khác nhau), xoá thư mục `data/chroma_db/` rồi ingest lại riêng file của bạn, hoặc đổi `CHROMA_COLLECTION_NAME` trong `.env`.
 
 ## Test & Eval
 
@@ -86,7 +86,7 @@ Tất cả file trong `data/raw/` dùng chung 1 Chroma collection (`documents`).
 .\.venv\Scripts\python.exe -m evaluation.run_eval    # Recall@5, MRR trên evaluation/eval_dataset/qa_pairs.json
 ```
 
-`qa_pairs.json` hiện có 4 câu hỏi mẫu ứng với nội dung `data/raw/sample.txt` — thay bằng câu hỏi/`relevant_chunk_ids` từ corpus thật của bạn khi làm báo cáo.
+`qa_pairs.json` hiện có 4 câu hỏi mẫu ứng với nội dung `data/raw/sample.txt` (đã xoá) — cần thay bằng câu hỏi/`relevant_chunk_ids` ứng với `FSoft_HR.pdf` (hoặc corpus thật của bạn) trước khi chạy `run_eval`, nếu không recall/MRR sẽ ra 0.
 
 ## Cấu hình (`.env`)
 
@@ -117,5 +117,5 @@ Model mới nhất (`gemini-flash-latest` → `gemini-3.6-flash` tại thời đ
 
 ```powershell
 .\.venv\Scripts\python.exe -m scripts.smoke_test_gemini     # chỉ test kết nối embedding + generate
-.\.venv\Scripts\python.exe -m scripts.smoke_test_pipeline   # ingest sample.txt + chạy 1 câu hỏi qua toàn bộ pipeline
+.\.venv\Scripts\python.exe -m scripts.smoke_test_pipeline   # ingest FSoft_HR.pdf + chạy 1 câu hỏi qua toàn bộ pipeline
 ```

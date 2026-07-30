@@ -1,18 +1,38 @@
 [
   {
-    "question": "RAG cơ bản gồm những bước nào?",
-    "relevant_chunk_ids": ["data/raw/sample.txt::0", "data/raw/sample.txt::1"]
+    "question": "Công ty quy định số giờ làm thêm (overtime) tối đa là bao nhiêu?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::11"]
   },
   {
-    "question": "Hybrid search kết hợp những kỹ thuật truy xuất nào?",
-    "relevant_chunk_ids": ["data/raw/sample.txt::1"]
+    "question": "Nhân viên làm thêm giờ có bị ép buộc không?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::12"]
   },
   {
-    "question": "Multi-hop reasoning dùng để làm gì?",
-    "relevant_chunk_ids": ["data/raw/sample.txt::2", "data/raw/sample.txt::3"]
+    "question": "Công ty có sử dụng lao động trẻ em không?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::6"]
   },
   {
-    "question": "ChromaDB dùng để làm gì?",
-    "relevant_chunk_ids": ["data/raw/sample.txt::3"]
+    "question": "Chính sách đa dạng và hoà nhập (Diversity & Inclusion) của công ty như thế nào?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::8"]
+  },
+  {
+    "question": "Nhân viên được đóng những loại bảo hiểm nào?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::15"]
+  },
+  {
+    "question": "Mức lương tối thiểu công ty trả cho nhân viên đã qua đào tạo là bao nhiêu?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::12"]
+  },
+  {
+    "question": "Công ty có chính sách gì về chống hối lộ và tham nhũng?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::17"]
+  },
+  {
+    "question": "Nhân viên có thể tìm hiểu chi tiết về quyền lợi và trách nhiệm của mình ở đâu?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::19", "data/raw/FSoft_HR.pdf::20"]
+  },
+  {
+    "question": "Công ty cam kết thời gian đào tạo tối thiểu cho mỗi nhân viên là bao nhiêu?",
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::13"]
   }
 ]

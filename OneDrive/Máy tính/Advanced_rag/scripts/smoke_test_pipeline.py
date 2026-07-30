@@ -4,11 +4,11 @@ from app.pipeline.rag_pipeline import RagPipeline
 def main() -> None:
     pipeline = RagPipeline()
 
-    print("1. Ingest data/raw/sample.txt...")
-    count = pipeline.ingest(["data/raw/sample.txt"])
+    print("1. Ingest data/raw/FSoft_HR.pdf...")
+    count = pipeline.ingest(["data/raw/FSoft_HR.pdf"])
     print(f"   OK - {count} chunks.")
 
-    question = "Advanced RAG cải thiện những bước nào so với RAG cơ bản, và ChromaDB dùng để làm gì?"
+    question = "Chính sách nhân sự của công ty có những nội dung chính nào?"
     print(f"2. Query: {question}")
     result = pipeline.run(question)
 

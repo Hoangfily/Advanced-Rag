@@ -1,25 +1,40 @@
-RAG_ANSWER_TEMPLATE = """Bạn là trợ lý trả lời câu hỏi dựa trên ngữ cảnh được cung cấp.
+from langchain_core.prompts import PromptTemplate
 
-Ngữ cảnh:
+RAG_ANSWER_TEMPLATE = PromptTemplate.from_template(
+    """You are an assistant that answers questions based on the provided context.
+
+Context:
 {context}
 
-Câu hỏi: {question}
+Question: {question}
 
-Trả lời dựa trên ngữ cảnh trên. Nếu ngữ cảnh không đủ thông tin, hãy nói rõ điều đó.
+Answer based on the context above. If the context doesn't contain enough information, say so clearly.
+Answer in the same language the question was asked in.
 """
+)
 
-QUERY_REWRITE_TEMPLATE = """Viết lại câu hỏi sau cho rõ ràng và cụ thể hơn, giữ nguyên ý định gốc.
+QUERY_REWRITE_TEMPLATE = PromptTemplate.from_template(
+    """Rewrite the following question to be clearer and more specific, while keeping its original intent.
+Output ONLY the single rewritten question itself, on one line, with no explanations, no multiple options, \
+and no markdown formatting.
 
-Câu hỏi gốc: {question}
-Câu hỏi viết lại:"""
+Original question: {question}
+Rewritten question:"""
+)
 
-MULTI_HOP_DECOMPOSE_TEMPLATE = """Phân tách câu hỏi sau thành các câu hỏi con cần trả lời tuần tự để có đủ thông tin trả lời câu hỏi gốc.
-Nếu câu hỏi đã đủ đơn giản, không cần tách, chỉ trả về chính câu hỏi đó.
+MULTI_HOP_DECOMPOSE_TEMPLATE = PromptTemplate.from_template(
+    """Break down the following question into sub-questions that need to be answered sequentially to gather \
+enough information to answer the original question.
+If the question is already simple enough, no decomposition is needed — just return the question itself.
 
-Câu hỏi: {question}
-Danh sách câu hỏi con (mỗi dòng một câu):"""
+Question: {question}
+List of sub-questions (one per line):"""
+)
 
-QUERY_EXPANSION_TEMPLATE = """Viết {num_variants} cách diễn đạt khác nhau cho câu hỏi sau, giữ nguyên ý nghĩa nhưng dùng từ ngữ/góc nhìn khác để tăng khả năng tìm kiếm tài liệu liên quan.
+QUERY_EXPANSION_TEMPLATE = PromptTemplate.from_template(
+    """Write {num_variants} different phrasings of the following question, keeping the same meaning but using \
+different wording/perspective to improve the chances of finding relevant documents.
 
-Câu hỏi gốc: {question}
-Danh sách cách diễn đạt khác (mỗi dòng một câu, không đánh số):"""
+Original question: {question}
+List of alternative phrasings (one per line, not numbered):"""
+)
