@@ -8,7 +8,7 @@ from app.ingestion.embedder import Embedder
 from app.schemas.models import RetrievedChunk
 
 
-class _EmbedderAdapter(Embeddings):
+class EmbedderAdapter(Embeddings):
     """Bridges the Gemini-backed Embedder into the langchain Embeddings interface."""
 
     def __init__(self, embedder: Embedder):
@@ -25,7 +25,7 @@ class VectorStore:
     def __init__(self, persist_dir: str, collection_name: str, embedder: Embedder):
         self._store = Chroma(
             collection_name=collection_name,
-            embedding_function=_EmbedderAdapter(embedder),
+            embedding_function=EmbedderAdapter(embedder),
             persist_directory=persist_dir,
         )
 

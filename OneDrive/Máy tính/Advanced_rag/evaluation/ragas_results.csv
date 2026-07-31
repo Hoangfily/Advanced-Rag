@@ -1,0 +1,23 @@
+question,answer,faithfulness,answer_relevancy,context_precision,context_recall
+Công ty quy định số giờ làm thêm (overtime) tối đa là bao nhiêu?,"Dựa trên ngữ cảnh được cung cấp, công ty quy định số giờ làm thêm (overtime) tối đa là:
+* Không quá **60 giờ/tháng**
+* Không quá **300 giờ/năm**",1.0,0.9672451848985681,0.49999999995,1.0
+Nhân viên làm thêm giờ có bị ép buộc không?,"Dựa trên ngữ cảnh được cung cấp, nhân viên làm thêm giờ **không** bị ép buộc. Việc làm thêm giờ được thực hiện trên cơ sở tự nguyện, không bị ép buộc hay bóc lột (trừ những trường hợp ngoại lệ).",1.0,1.0,0.7499999999625,1.0
+Công ty có sử dụng lao động trẻ em không?,"Dựa trên ngữ cảnh được cung cấp, công ty không sử dụng lao động trẻ em. Công ty cam kết không tuyển dụng lao động trẻ em dưới 18 tuổi và không hợp tác với bất kỳ tổ chức nào sử dụng lao động trẻ em.",1.0,0.9897329219428569,0.9999999999,1.0
+Chính sách đa dạng và hoà nhập (Diversity & Inclusion) của công ty như thế nào?,"Dựa trên ngữ cảnh được cung cấp, chính sách đa dạng và hoà nhập (Diversity & Inclusion) của công ty được thể hiện như sau:
+
+* FSOFT ưu tiên sự Đa dạng và Hòa nhập, tôn trọng các tài năng và kinh nghiệm khác nhau.
+* Mục tiêu của công ty là tạo ra một môi trường làm việc hòa nhập và tận dụng sức mạnh của sự đa dạng để tạo lợi thế cạnh tranh bền vững, nơi nhân viên từ các nền tảng khác nhau có cơ hội tham gia, phát triển và đóng góp một cách tự do, công bằng.
+* Công ty đảm bảo rằng tất cả các cá nhân đều có cơ hội bình đẳng, có một môi trường làm việc không có sự phân biệt đối xử và quấy rối.
+* Công ty không phân biệt đối xử hoặc cho phép quấy rối dựa trên chủng tộc, màu da, tôn giáo, khuyết tật, giới tính, quốc tịch,... (cùng nhiều yếu tố khác được nêu trong chính sách).",1.0,0.8494331285631248,0.99999999995,1.0
+Nhân viên được đóng những loại bảo hiểm nào?,"Dựa trên ngữ cảnh được cung cấp, nhân viên (những người ký hợp đồng lao động chính thức với Công ty) được đóng các loại bảo hiểm sau:
+* Bảo hiểm xã hội (social insurance)
+* Bảo hiểm y tế (medical insurance)
+* Bảo hiểm thất nghiệp (unemployment insurance)",1.0,0.9315000829571011,0.99999999995,1.0
+Mức lương tối thiểu công ty trả cho nhân viên đã qua đào tạo là bao nhiêu?,"Dựa trên ngữ cảnh được cung cấp, mức lương tối thiểu công ty đang trả cho nhân viên đã qua đào tạo tại Vùng I là **5.007.600 đồng**.",1.0,0.8966409006062704,0.9999999999,1.0
+Công ty có chính sách gì về chống hối lộ và tham nhũng?,"Dựa trên ngữ cảnh được cung cấp, chính sách về chống hối lộ và tham nhũng của công ty bao gồm:
+
+* Chính sách chống hối lộ và tham nhũng (Anti-Bribery & Anti-Corruption policy) nêu chi tiết lập trường của công ty về vấn đề hối lộ và tham nhũng.
+* Công ty đã áp dụng cơ chế người thổi kỷ luật (whistle blower mechanism) để báo cáo các mối quan ngại về hành vi phi đạo đức, hành vi gian lận thực tế hoặc bị nghi ngờ, hoặc vi phạm Quy tắc ứng xử trong kinh doanh của Công ty.",1.0,0.9734744193941745,0.9999999999,1.0
+Nhân viên có thể tìm hiểu chi tiết về quyền lợi và trách nhiệm của mình ở đâu?,"Dựa trên ngữ cảnh được cung cấp, nhân viên có thể tìm hiểu chi tiết về các tài liệu hướng dẫn quyền lợi và trách nhiệm của mình bằng cách truy cập vào trang web nội bộ của Công ty tại địa chỉ: **QMS.FSOFT.COM.VN**.",1.0,0.9557115798836308,0.9999999999,1.0
+Công ty cam kết thời gian đào tạo tối thiểu cho mỗi nhân viên là bao nhiêu?,"Dựa trên ngữ cảnh được cung cấp, công ty cam kết thời gian đào tạo chuyên môn tối thiểu trung bình cho mỗi nhân viên là **8 giờ đào tạo mỗi năm** (average minimum professional training time per employee per year is 8 hours of training).",1.0,0.8898240136032481,0.9999999999,1.0

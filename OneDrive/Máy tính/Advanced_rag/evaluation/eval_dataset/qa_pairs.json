@@ -1,38 +1,47 @@
 [
   {
     "question": "Công ty quy định số giờ làm thêm (overtime) tối đa là bao nhiêu?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::11"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::11"],
+    "ground_truth": "Số giờ làm thêm không được vượt quá 60 giờ mỗi tháng và 300 giờ mỗi năm."
   },
   {
     "question": "Nhân viên làm thêm giờ có bị ép buộc không?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::12"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::12"],
+    "ground_truth": "Không. Trừ các trường hợp đặc biệt, nhân viên làm thêm giờ trên cơ sở tự nguyện, không bị ép buộc hay bóc lột."
   },
   {
     "question": "Công ty có sử dụng lao động trẻ em không?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::6"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::6"],
+    "ground_truth": "Không. Công ty phản đối việc bóc lột trẻ em (người dưới 18 tuổi) dưới bất kỳ hình thức lao động nào ảnh hưởng đến việc học tập, sức khoẻ thể chất, tinh thần hoặc đạo đức của trẻ."
   },
   {
     "question": "Chính sách đa dạng và hoà nhập (Diversity & Inclusion) của công ty như thế nào?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::8"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::8"],
+    "ground_truth": "Công ty ưu tiên sự đa dạng và hoà nhập, tôn trọng tài năng và kinh nghiệm khác nhau, xây dựng môi trường làm việc hoà nhập để nhân viên từ nhiều nền tảng khác nhau có cơ hội tham gia, phát triển và đóng góp một cách bình đẳng."
   },
   {
     "question": "Nhân viên được đóng những loại bảo hiểm nào?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::15"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::15"],
+    "ground_truth": "Công ty cam kết đóng đầy đủ bảo hiểm xã hội, bảo hiểm y tế và bảo hiểm thất nghiệp cho tất cả nhân viên ký hợp đồng lao động chính thức, theo đúng quy định của Luật Bảo hiểm xã hội."
   },
   {
     "question": "Mức lương tối thiểu công ty trả cho nhân viên đã qua đào tạo là bao nhiêu?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::12"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::12"],
+    "ground_truth": "Công ty hiện trả mức lương tối thiểu 5.007.600 đồng cho nhân viên đã qua đào tạo thuộc Vùng I, cao hơn mức lương tối thiểu do chính phủ quy định."
   },
   {
     "question": "Công ty có chính sách gì về chống hối lộ và tham nhũng?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::17"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::17"],
+    "ground_truth": "Công ty có chính sách Chống Hối lộ và Tham nhũng quy định rõ lập trường của công ty, đồng thời áp dụng cơ chế tố giác (whistle blower) để tiếp nhận và xử lý các mối lo ngại liên quan."
   },
   {
     "question": "Nhân viên có thể tìm hiểu chi tiết về quyền lợi và trách nhiệm của mình ở đâu?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::19", "data/raw/FSoft_HR.pdf::20"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::19", "data/raw/FSoft_HR.pdf::20"],
+    "ground_truth": "Công ty cung cấp các tài liệu tham khảo dạng sổ tay (handbook) và cổng thông tin chính sách; nhân viên có thể truy cập trang nội bộ QMS.FSOFT.COM.VN để đọc chi tiết các tài liệu này."
   },
   {
     "question": "Công ty cam kết thời gian đào tạo tối thiểu cho mỗi nhân viên là bao nhiêu?",
-    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::13"]
+    "relevant_chunk_ids": ["data/raw/FSoft_HR.pdf::13"],
+    "ground_truth": "Công ty cam kết thời gian đào tạo chuyên môn tối thiểu trung bình là 8 giờ mỗi năm cho mỗi nhân viên."
   }
 ]

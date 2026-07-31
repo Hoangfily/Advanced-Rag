@@ -14,3 +14,9 @@ google-genai
 streamlit
 requests
 pytest
+# ragas kéo theo scikit-network (yêu cầu build C++, cần MSVC Build Tools trên Windows).
+# Nếu `pip install -r requirements.txt` báo lỗi build scikit-network, cài riêng bằng:
+#   pip install --no-deps ragas==0.4.3
+# rồi cài các dependency còn lại (đã có sẵn trong file này: langchain*, pillow, tqdm...) trừ
+# scikit-network — xem evaluation/ragas_eval.py để biết cách dùng.
+ragas==0.4.3
